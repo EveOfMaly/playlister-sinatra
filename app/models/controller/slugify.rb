@@ -1,15 +1,12 @@
-class Artist < ActiveRecord::Base
-    has_many :songs 
-    has_many :genres, through: :songs
-
+class Slugify 
     def slug
         #you can use .parameterize method or split and join combination.
         self.name.parameterize
     end
 
     def self.find_by_slug(slug)
-       name =  self.deparametrize(slug)
-       self.find_by(name: name)
+    name =  self.deparametrize(slug)
+    self.find_by(name: name)
 
     end
 
@@ -17,6 +14,3 @@ class Artist < ActiveRecord::Base
         slug.split("-").join(" ").titleize #first letter capital
     end
 end
-
-
-

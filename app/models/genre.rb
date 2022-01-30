@@ -11,10 +11,9 @@ class Genre < ActiveRecord::Base
     def self.find_by_slug(slug)
        name =  self.deparametrize(slug)
        self.find_by(name: name)
-
     end
 
-    def self.deparametrize(slug) #turns into a slug
+    def self.deparametrize(slug) #turns into a regular
         slug.split("-").join(" ").titleize #first letter capital
     end
 
