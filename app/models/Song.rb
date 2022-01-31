@@ -9,9 +9,7 @@ class Song < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-       name =  self.deparametrize(slug)
-       self.find_by(name: name)
-
+       Song.all.find {|song| song.slug == slug }
     end
 
     def self.deparametrize(slug) #turns into a slug

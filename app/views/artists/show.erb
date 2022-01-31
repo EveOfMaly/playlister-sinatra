@@ -1,0 +1,16 @@
+
+<h1>Artist Information</h1>
+   <b> Name:</b> <%= @artist.name %>
+    <br>
+    <br>
+    Genres:  <% @artist.genres.uniq.each do |genre| %>
+        <ul>
+            <a href="genres/<%=genre.slug%>"><li><%= genre.name if genre.name != nil %></li></a>
+         </ul>   
+        <% end %>
+    <h2>List of Songs </h2> 
+     <% @artist.songs.each do |song| %>
+        <ul>
+            <a href="songs/<%=song.slug%>"><li><%= song.name if song.name != nil %></li></a>
+            </ul>   
+        <% end %>

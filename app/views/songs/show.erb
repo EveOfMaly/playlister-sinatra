@@ -1,4 +1,11 @@
-<h1><%= @song.name %> Information </h1>
-    Name: <%= @song.name %>
-    Artist: <%= @song.artist %>
-    Genre: <%= @song.genre %>
+
+
+<h1> Song Information </h1>
+    Name: <%= @song.name %><br>
+    Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name if @song.artist != nil %><br></a>
+    Genre: <% @song.genres.each do |genres| %>
+        <a href="/genres/<%= genres.slug %>"> <%= genres.name if genres.name != nil %>
+        <% end %>
+    
+    
+

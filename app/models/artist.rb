@@ -8,9 +8,7 @@ class Artist < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-       name =  self.deparametrize(slug)
-       self.find_by(name: name)
-
+        Artist.all.find {|artist| artist.slug == slug }
     end
 
     def self.deparametrize(slug) #turns into a slug

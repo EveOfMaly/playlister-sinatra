@@ -9,8 +9,7 @@ class Genre < ActiveRecord::Base
     end
 
     def self.find_by_slug(slug)
-       name =  self.deparametrize(slug)
-       self.find_by(name: name)
+        Genre.all.find {|genre| genre.slug == slug }
     end
 
     def self.deparametrize(slug) #turns into a regular

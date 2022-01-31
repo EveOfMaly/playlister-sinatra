@@ -3,14 +3,14 @@ class SongsController < ApplicationController
     #index page
     get '/songs' do
       @songs = Song.all
-
       erb :'songs/index'
     end
 
+    #read individual song
     get '/songs/:slug' do 
-      name = params[:slug]
-      binding.pry
-      @song = Song.find_by(name: params[])
+
+      @song = Song.find_by_slug(params[:slug])
+    
       erb :'songs/show'
     end
 
