@@ -12,7 +12,7 @@ class Song < ActiveRecord::Base
        Song.all.find {|song| song.slug == slug }
     end
 
-    def self.deparametrize(slug) #turns into a slug
+    def self.deparametrize(slug) #turns into anti slug
         slug.split("-").join(" ").titleize #first letter capital
     end
 end
