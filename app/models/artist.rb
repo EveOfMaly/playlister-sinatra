@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
 
     def slug
         #you can use .parameterize method or split and join combination.
-        self.name.parameterize
+        self.name.to_s.parameterize
     end
 
     def self.find_by_slug(slug)

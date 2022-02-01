@@ -3,9 +3,15 @@ class Song < ActiveRecord::Base
     has_many :song_genres
     has_many :genres, through: :song_genres
 
+
+    # def permalink
+    #     self.name.to_s.parameterize
+    # end
+
     def slug
-        #you can use .parameterize method or split and join combination.
-        self.name.parameterize
+        # self.name.downcase.split(" ").join("-")
+        # name.downcase.gsub(" ","-")
+        self.name.to_s.parameterize
     end
 
     def self.find_by_slug(slug)
@@ -15,6 +21,8 @@ class Song < ActiveRecord::Base
     def self.deparametrize(slug) #turns into anti slug
         slug.split("-").join(" ").titleize #first letter capital
     end
+
+  
 end
 
 
