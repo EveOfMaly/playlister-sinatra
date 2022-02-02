@@ -4,14 +4,11 @@ class Song < ActiveRecord::Base
     has_many :genres, through: :song_genres
 
 
-    # def permalink
-    #     self.name.to_s.parameterize
-    # end
-
     def slug
         # self.name.downcase.split(" ").join("-")
-        # name.downcase.gsub(" ","-")
-        self.name.to_s.parameterize
+
+        name.to_s.downcase.gsub(" ","-")
+        # self.name.to_s.parameterize
     end
 
     def self.find_by_slug(slug)
